@@ -1,0 +1,36 @@
+# Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
+
+client_id = "6aca6ab692bf75d9f1a02afaa5cf12af"
+application_url = "https://afghanistan-observation-drives-pst.trycloudflare.com"
+embedded = true
+name = "dynamic-fields-test"
+handle = "dynamic-fields-test"
+
+[build]
+include_config_on_deploy = true
+automatically_update_urls_on_dev = true
+
+[webhooks]
+api_version = "2024-10"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/uninstalled" ]
+  uri = "/webhooks/app/uninstalled"
+
+  [[webhooks.subscriptions]]
+  topics = [ "app/scopes_update" ]
+  uri = "/webhooks/app/scopes_update"
+
+[access_scopes]
+# Learn more at https://shopify.dev/docs/apps/tools/cli/configuration#access_scopes
+scopes = "write_products"
+
+[auth]
+redirect_urls = [
+  "https://afghanistan-observation-drives-pst.trycloudflare.com/auth/callback",
+  "https://afghanistan-observation-drives-pst.trycloudflare.com/auth/shopify/callback",
+  "https://afghanistan-observation-drives-pst.trycloudflare.com/api/auth/callback"
+]
+
+[pos]
+embedded = false
