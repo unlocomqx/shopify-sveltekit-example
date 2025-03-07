@@ -3,13 +3,20 @@ import { ApiVersion, AppDistribution, shopifyApp } from '@shopify/shopify-app-re
 import { DrizzleSessionStoragePostgres } from '@shopify/shopify-app-session-storage-drizzle';
 import { db } from '$lib/server/db';
 import { sessionTable } from '$lib/server/db/schema';
+import {
+	SCOPES,
+	SHOP_CUSTOM_DOMAIN,
+	SHOPIFY_API_KEY,
+	SHOPIFY_API_SECRET,
+	SHOPIFY_APP_URL
+} from '$env/static/private';
 
 const shopify = shopifyApp({
-	apiKey: process.env.SHOPIFY_API_KEY,
-	apiSecretKey: process.env.SHOPIFY_API_SECRET || '',
+	apiKey: SHOPIFY_API_KEY,
+	apiSecretKey: SHOPIFY_API_SECRET || '',
 	apiVersion: ApiVersion.January25,
-	scopes: process.env.SCOPES?.split(','),
-	appUrl: process.env.SHOPIFY_APP_URL || '',
+	scopes: SCOPES?.split(','),
+	appUrl: SHOPIFY_APP_URL || '',
 	authPathPrefix: '/auth',
 	sessionStorage: new DrizzleSessionStoragePostgres(db, sessionTable),
 	distribution: AppDistribution.AppStore,
@@ -17,7 +24,7 @@ const shopify = shopifyApp({
 		unstable_newEmbeddedAuthStrategy: true,
 		removeRest: true
 	},
-	...(process.env.SHOP_CUSTOM_DOMAIN ? { customShopDomains: [process.env.SHOP_CUSTOM_DOMAIN] } : {})
+	...(SHOP_CUSTOM_DOMAIN ? { customShopDomains: [SHOP_CUSTOM_DOMAIN] } : {})
 });
 
 export default shopify;

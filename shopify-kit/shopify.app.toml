@@ -1,7 +1,7 @@
 # Learn more about configuring your app at https://shopify.dev/docs/apps/tools/cli/configuration
 
 client_id = "6aca6ab692bf75d9f1a02afaa5cf12af"
-application_url = "https://afghanistan-observation-drives-pst.trycloudflare.com"
+application_url = "https://jordan-cleanup-pleased-portfolio.trycloudflare.com"
 embedded = true
 name = "dynamic-fields-test"
 handle = "dynamic-fields-test"
@@ -27,9 +27,9 @@ scopes = "write_products"
 
 [auth]
 redirect_urls = [
-  "https://afghanistan-observation-drives-pst.trycloudflare.com/auth/callback",
-  "https://afghanistan-observation-drives-pst.trycloudflare.com/auth/shopify/callback",
-  "https://afghanistan-observation-drives-pst.trycloudflare.com/api/auth/callback"
+  "https://jordan-cleanup-pleased-portfolio.trycloudflare.com/auth/callback",
+  "https://jordan-cleanup-pleased-portfolio.trycloudflare.com/auth/shopify/callback",
+  "https://jordan-cleanup-pleased-portfolio.trycloudflare.com/api/auth/callback"
 ]
 
 [pos]
